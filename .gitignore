@@ -5,3 +5,5 @@
 .*.sw[a-z]
 *.un~
 .DS_Store
+*.gem
+pkg/*
