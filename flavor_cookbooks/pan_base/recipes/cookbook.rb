@@ -25,7 +25,6 @@ files_basic = %w(
   Thorfile
   recipes/_chef_client.rb
   recipes/_defaults_linux.rb
-  recipes/_defaults_windows.rb
 )
 files_basic.each do |file|
   cookbook_file File.join(cookbook_dir, file) do
