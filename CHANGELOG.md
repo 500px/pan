@@ -1,5 +1,9 @@
 # Pan Cookbook Generator
 
+## Release 4.0.2 2017/01/17
+
+* Added new template folder tree with heavy modifications to default structure/files for 500px Environment Cookbooks
+
 ## Release 4.0.1 2017/01/16
 
 * Modified to bring into alignment with 500px, Inc. needs
