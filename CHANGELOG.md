@@ -1,5 +1,10 @@
 # Pan Cookbook Generator
 
+## Release 4.0.3 2017/01/17
+
+* Added initial generator templates for 500px wrapper, library, and application cookbooks.  Initially only differing from environment cookbooks by ignoring Berksfile.lock for git purposes.
+* Cleaned out the default pan_* cookbook templates to avoid confusion.
+
 ## Release 4.0.2 2017/01/17
 
 * Added new template folder tree with heavy modifications to default structure/files for 500px Environment Cookbooks
