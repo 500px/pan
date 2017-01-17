@@ -1,4 +1,8 @@
-# Pan Example Cookbook Generator
+# Pan Cookbook Generator
+
+## Release 4.0.1 2017/01/16
+
+* Modified to bring into alignment with 500px, Inc. needs
 
 ## Release 4.0.0 2015/10/29
 

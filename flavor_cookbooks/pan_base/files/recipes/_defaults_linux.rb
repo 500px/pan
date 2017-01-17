@@ -1,5 +1,5 @@
 if platform_family?('debian', 'rhel')
-  node.set['omnibus_updater']['version'] = '12.3.0'
+  node.set['omnibus_updater']['version'] = '12.17.44'
   node.set['omnibus_updater']['restart_chef_service'] = true
   include_recipe 'omnibus_updater'
 
