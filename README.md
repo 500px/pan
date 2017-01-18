@@ -34,7 +34,7 @@ end
 
 ## Usage
 
-`chef generate cookbook my_cookbook_name`
+`chef generate cookbook cookbook-name -m YOU@500px.com -I mit -C "500px, Inc."`
 
 ```
 [ChefGen Flavor Selector]: Flavors on the menu
