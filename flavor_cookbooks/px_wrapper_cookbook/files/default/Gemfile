@@ -2,9 +2,9 @@ source 'https://rubygems.org'
 
 gem 'chefspec',   '~> 5.3'
 gem 'berkshelf',  '~> 5.3'
-gem 'rake'        '~> 12.0'
+gem 'rake',       '~> 12.0'
 gem 'rubocop',    '~> 0.47'
-gem 'foodcritic'  '~> 8.2'
+gem 'foodcritic', '~> 8.2'
 
 group :plugins do
   gem "vagrant-berkshelf", '~> 5.1'

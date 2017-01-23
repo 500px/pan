@@ -16,6 +16,8 @@ namespace :style do
         '~FC005',
         '~FC015',
         '~FC023',
+        '~FC064',
+        '~FC065'
       ]
     }
   end
