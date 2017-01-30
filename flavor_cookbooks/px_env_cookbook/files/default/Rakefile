@@ -103,4 +103,5 @@ end
 desc 'Run doc, style, unit and integration tests using the correct kitchen env'
 task cloud: %w(doc style unit integration:cloud)
 task vagrant: %w(doc style unit integration:vagrant)
-task default: ['doc', 'style', 'unit', "integration:#{DEFAULT_KITCHENCI_ENV}"]
+task docker: %w(doc style unit integration:docker)
+task default: [DEFAULT_KITCHENCI_ENV]

@@ -2,6 +2,10 @@
 
 ## Release 4.0.4 2017/01/30
 
+* small improvement to Rakefile syntax
+
+## Release 4.0.4 2017/01/30
+
 * Updated with latest default versions for our template cookbooks
 
 ## Release 4.0.3 2017/01/17
