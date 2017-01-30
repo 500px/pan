@@ -1,2 +1,2 @@
-name 'px_non_environment_vagrant_cookbook'
+name 'px_non_env_cookbook'
 version '0.0.0'
