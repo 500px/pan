@@ -28,7 +28,6 @@ files_basic = %w(
   Gemfile
   Rakefile
   Thorfile
-  spec/recipes/default_spec.rb
   spec/spec_helper.rb
   test/integration/default/serverspec/package_spec.rb
   test/integration/helpers/serverspec/spec_helper.rb
@@ -47,6 +46,7 @@ files_template = %w(
   .kitchen.docker.yml
   CHANGELOG.md
   metadata.rb
+  spec/recipes/default_spec.rb
   README.md
 )
 files_template.each do |file|

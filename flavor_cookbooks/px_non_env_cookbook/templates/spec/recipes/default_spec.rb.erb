@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe '500px-aws::default' do
+describe '<%= cookbook_name %>::default' do
   let :chef_run do
     ChefSpec::SoloRunner.new(platform: 'ubuntu', version: '14.04')
   end

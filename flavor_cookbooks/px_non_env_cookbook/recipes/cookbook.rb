@@ -28,7 +28,6 @@ files_basic = %w(
   Gemfile
   Rakefile
   Thorfile
-  spec/recipes/default_spec.rb
   spec/spec_helper.rb
   test/integration/default/serverspec/package_spec.rb
   test/integration/helpers/serverspec/spec_helper.rb
@@ -48,6 +47,7 @@ files_template = %w(
   CHANGELOG.md
   metadata.rb
   README.md
+  spec/recipes/default_spec.rb
 )
 files_template.each do |file|
   template File.join(cookbook_dir, file) do
