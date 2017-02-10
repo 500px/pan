@@ -25,4 +25,41 @@ Include `<%= cookbook_name %>` in your run_list.
 
 ## Testing
 
-TODO: Write how you plan to test this cookbook.
+* For the <%= cookbook_name %> cookbook testing should be primarily performed with [vagrant|docker|cloud].
+  * Please update the default kitchenci environment type to use as a default in the Rakefile if you haven't already.
+  * You can accomplish this by updating the line ```default_kitchenci_env = ENV.fetch(DEFAULT_KITCHENCI_ENV, 'vagrant')```
+    * This can be changed to one of vagrant, docker, or cloud.
+    * You might also note that, should you desire to do so, you can temporarily force a different environment by setting using an export DEFAULT_KITCHEN_CI=vagrant for example.
+  * To run kitchen outside of rake with an environment other than vagrant you will need to use the syntax of KITCHEN_YAML=.kitchen.([cloud|docker].)yml kitchen (create|login|test|verify|converge|destroy|...)
+    * This overriding is necessary to indicate the type of kitchen you will be working with.  Alternate approaches exist such as .kitchen.local.yml, but are beyond the scope of this README.
+    * .kitchen.yml is the default from the command line if no KITCHEN_YAML is specified and indicates Vagrant testing.
+
+### Notes & Caveats
+
+#### General things to keep in mind
+* Try to approach 100% coverage from ```rake spec```
+* Either get completely clean results from ```rake style``` or update the .foodcritic and .rubocop configuration templates appropriately.  You may also want to look at the [chef-flavor-pan](https://github.com/500px/pan) project if you decide to change these configurations if your changes would be applicable to future new cookbooks generated.  Pan is the basis of our chef generate cookbook templates.
+* Create spec unit tests until you achieve full coverage attempting ot test one resource at a time with little to no other resources touched on each test.
+* Create serverspec integration tests to test out the known use cases for your work focusing on testing the high level picture.
+
+#### Cloud (EC2) Kitchen Notes
+* For kitchen cloud (EC2) based testing the following **Environment Variables** must be configured:
+  * **AWS_KEYPAIR_ID**: should be set to the name of a ssh keypair you created in the 500px-ec2 account.
+  * **EC2_SSH_KEY_PATH**: should be set to the path of the ssh private key that matches the public key you uploaded to 500px-ec2 and named in AWS_KEYPAIR_ID
+* The default for the cloud based test kitchen is to launch an EC2 instance into the test-kitchen VPC on 500px-ec2.
+  * This VPC was setup specifically to be very permissive of outgoing traffic, and allow 22 incoming.  While maintaining practicies that match the rest of our AWS infrastructure.
+  * It also seggregates our test instances from our production instances.
+  * There's little reason why we want to spin up multiple VPCs complete with resources like internet gateways unless it's necessary.
+* If you are doing a great deal of testing it is wise to occassionally login to the 500px-ec2 account an check the ec2 console for any unnamed instances of type t2.small that have become orphaned by testing.  Cleaning these out is always appreciated!
+
+### Using rake
+You can run the tests using the following commands:
+* ```rake``` will run all of the following in order:
+  * ```rake doc``` to build a new set of yardocs.
+  * ```rake style``` to run foodcritic and rubostyle checks.
+  * ```rake spec``` to run chefspec unit tests.
+  * ```rake integration``` to do a converge on kitchenci and test using serverspec integration tests.
+* Individual kitchenci testing environments can be accessed specifically using the following:
+  * ```rake docker``` or ```rake integration:docker```
+  * ```rake vagrant``` or ```rake integration:vagrant```
+  * ```rake cloud``` or ```rake cloud```

@@ -7,7 +7,7 @@ def ci?
   ENV['CI'] == 'true'
 end
 
-DEFAULT_KITCHENCI_ENV = 'docker'.freeze
+default_kitchenci_env = ENV.fetch('DEFAULT_KITCHENCI_ENV', 'vagrant')
 
 desc 'Clean some generated files'
 task :clean do
@@ -100,8 +100,11 @@ namespace :integration do
   end
 end
 
+desc 'Run integration tests using preferred kitchen platform.'
+task integration: ['integration:' + default_kitchenci_env]
+
 desc 'Run doc, style, unit and integration tests using the correct kitchen env'
 task cloud: %w(doc style unit integration:cloud)
 task vagrant: %w(doc style unit integration:vagrant)
 task docker: %w(doc style unit integration:docker)
-task default: [DEFAULT_KITCHENCI_ENV]
+task default: [default_kitchenci_env]

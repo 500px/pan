@@ -1,4 +1,41 @@
 # Pan Cookbook Generator
+## Release 4.0.13 2017/02/09
+
+* Heavy duty updates to our README and a few other elements.
+* Synced up the env and non-env template directories.  They only differ in handling Berksfile.lock now.
+
+## Release 4.0.12 2017/02/09
+
+* Updates to cleanup typos and fix templates
+
+## Release 4.0.11 2017/02/09
+
+* Added a missing % on the closing tag of an ERB tag
+
+## Release 4.0.10 2017/02/09
+
+* Fixed cloud kitchen yml files to escape ENV vars that point to keys and AWS keypair IDs
+* Updated README files with some default info about testing on EC2 configuration for environment vars
+
+## Release 4.0.9 2017/02/09
+
+* Fixed a typo that broke the copy helpers module
+
+## Release 4.0.8 2017/02/09
+
+* Updated the rakes with integration command that correctly runs integration tests in the default environment
+
+## Release 4.0.7 2017/02/09
+
+* Updated the kithcen yamls for cloud and vagrant to include our data_bag path for testing with real data.
+
+## Release 4.0.6 2017/02/??
+
+* Unknown
+
+## Release 4.0.5 2017/02/??
+
+* Unknown
 
 ## Release 4.0.4 2017/01/30
 

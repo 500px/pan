@@ -11,6 +11,7 @@ cookbook_directories = %w(
   test/integration/default/serverspec
   test/integration/helpers/serverspec
   spec/recipes
+  spec/support
 )
 cookbook_directories.each do |dir|
   directory File.join(cookbook_dir, dir) do
@@ -29,7 +30,7 @@ files_basic = %w(
   Rakefile
   Thorfile
   spec/spec_helper.rb
-  test/integration/default/serverspec/package_spec.rb
+  test/integration/default/serverspec/default_spec.rb
   test/integration/helpers/serverspec/spec_helper.rb
 )
 files_basic.each do |file|
@@ -46,33 +47,36 @@ files_template = %w(
   .kitchen.docker.yml
   CHANGELOG.md
   metadata.rb
-  spec/recipes/default_spec.rb
   README.md
+  spec/recipes/default_spec.rb
+  spec/support/matchers.rb
+  recipes/default.rb
+  attributes/default.rb
 )
 files_template.each do |file|
   template File.join(cookbook_dir, file) do
     helpers(ChefDK::Generator::TemplateHelper)
+    source [
+      file,
+      file + '.erb',
+      "default/#{file}",
+      "default/#{file}.erb"
+    ]
     action :create_if_missing
   end
 end
 
-# Create more complex files from templates
-template "#{cookbook_dir}/attributes/default.rb" do
-  source 'default_attributes.rb.erb'
-  helpers(ChefDK::Generator::TemplateHelper)
-  action :create_if_missing
-  variables(attribute_context: attribute_context)
-end
+# # Create more complex files from templates
+# template "#{cookbook_dir}/attributes/default.rb" do
+#   source 'default_attributes.rb.erb'
+#   helpers(ChefDK::Generator::TemplateHelper)
+#   action :create_if_missing
+#   variables(attribute_context: attribute_context)
+# end
 
 # LICENSE
 template "#{cookbook_dir}/LICENSE" do
   source "LICENSE.#{context.license}.erb"
-  helpers(ChefDK::Generator::TemplateHelper)
-  action :create_if_missing
-end
-
-template "#{cookbook_dir}/recipes/default.rb" do
-  source 'recipes/default.rb.erb'
   helpers(ChefDK::Generator::TemplateHelper)
   action :create_if_missing
 end

@@ -1,6 +1,6 @@
 driver_config:
   name: ec2
-  aws_ssh_key_id: <%= ENV['AWS_KEYPAIR_ID'] %>
+  aws_ssh_key_id: <%%= ENV['AWS_KEYPAIR_ID'] %>
   region: us-east-1
   availability_zone: a
   require_chef_omnibus: true
@@ -12,13 +12,14 @@ driver_config:
   # iam_profile_name: mongobackup_profile
 
 transport:
-  ssh_key: <%= ENV['EC2_SSH_KEY_PATH'] %>
+  ssh_key: <%%= ENV['EC2_SSH_KEY_PATH'] %>
   connection_timeout: 10
   connection_retries: 5
   username: ubuntu
 
 provisioner:
   name: chef_zero
+  data_bags_path: ../../data_bags
 
 verifier:
   name: busser
