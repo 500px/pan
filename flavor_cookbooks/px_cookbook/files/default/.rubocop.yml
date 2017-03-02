@@ -1,0 +1,20 @@
+AllCops:
+  Exclude:
+    - vendor/**
+
+AlignParameters:
+  Enabled: false
+ClassAndModuleChildren:
+  Enabled: false
+Encoding:
+  Enabled: false
+LineLength:
+  Max: 200
+Metrics/ModuleLength:
+  CountComments: false
+  Max: 250
+Metrics/BlockLength:
+  CountComments: false
+  Max: 250
+StringLiterals:
+  Enabled: false

@@ -1,0 +1,7 @@
+# spec/support/matchers.rb
+if defined?(ChefSpec)
+  ChefSpec.define_matcher :modules
+  def load_modules(resource_name)
+    ChefSpec::Matchers::ResourceMatcher.new(:modules, :load, resource_name)
+  end
+end

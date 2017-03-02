@@ -1,4 +1,10 @@
 # Pan Cookbook Generator
+## Release 4.0.15 2017/03/02
+
+* Consoildated to a single px cookbook for the moment to reduce maintenance and complexity.
+* Added better defaults and configuration surrounding testing both unit and integration.
+* Added an updated Rakefile that includes support for concurrent testing.
+
 ## Release 4.0.13 2017/02/09
 
 * Heavy duty updates to our README and a few other elements.

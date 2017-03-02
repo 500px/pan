@@ -1,0 +1,30 @@
+---
+driver:
+  name: vagrant
+  memory: 2048
+
+provisioner:
+  name: chef_zero
+  data_path: "../../test"
+  data_bags_path: "test/integration/data_bags"
+  environments_path: "test/integration/environments"
+  encrypted_data_bag_secret_key_path: "<%%= ENV['CHEF_WS_HOME'] %>/encrypted_data_bag_secret"
+  client_rb:
+    environment: kitchen
+
+platforms:
+  - name: opscode-ubuntu-14.04
+    driver_config:
+      box: opscode-ubuntu-14.04
+      box_url: http://opscode-vm-bento.s3.amazonaws.com/vagrant/virtualbox/opscode_ubuntu-14.04_chef-provisionerless.box
+
+suites:
+  - name: default
+    run_list:
+      - recipe[<%= cookbook_name %>::default]
+    attributes:
+      chef_client:
+        config:
+          chef_server_url: "http://localhost:8889"
+      omnibus_updater:
+        kill_chef_on_upgrade: false

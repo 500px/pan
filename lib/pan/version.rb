@@ -1,3 +1,3 @@
 module Pan
-  VERSION = "4.0.13"
+  VERSION = "4.0.15"
 end

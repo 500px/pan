@@ -1,0 +1,20 @@
+---
+driver:
+  name: docker
+  provision_command: curl -L https://www.chef.io/chef/install.sh | bash
+
+platforms:
+- name: ubuntu-14.04
+  driver_config:
+    platform: ubuntu
+
+suites:
+  - name: default
+    run_list:
+      - recipe[<%= cookbook_name %>::default]
+    attributes:
+      chef_client:
+        config:
+          chef_server_url: "http://localhost:8889"
+      omnibus_updater:
+        kill_chef_on_upgrade: false

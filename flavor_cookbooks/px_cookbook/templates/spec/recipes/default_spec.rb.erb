@@ -1,0 +1,31 @@
+require 'spec_helper'
+
+describe '<%= cookbook_name %>::default' do
+  include ChefVault::TestFixtures.rspec_shared_context
+
+  before(:each) do
+    stub_command('which sudo').and_return(false)
+
+    # sample of stubbing an encrypted data bag item
+    allow(Chef::EncryptedDataBagItem).to receive(:load).with('site_keys', 'datadog')
+      .and_return(
+        'datadog' => {
+          'api_key' => 'somekey',
+          'app_key' => 'somekey'
+        }
+      )
+  end
+
+  shared_examples "shared <%= cookbook_name %>" do
+    # any it stanzas placed here are accessible in later contexts using
+    # include_examples "shared <%= cookbook_name %>"
+  end
+
+  context 'default run' do
+    let(:chef_run) do
+      ChefSpec::SoloRunner.new(platform: 'ubuntu', version: '14.04').converge(described_recipe)
+    end
+
+    # you unit test should appear here and in later contexts.
+  end
+end

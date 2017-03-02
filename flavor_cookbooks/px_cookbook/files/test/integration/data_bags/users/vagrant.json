@@ -1,0 +1,9 @@
+{
+  "id": "vagrant",
+  "groups": [
+    "sysadmin",
+    "deploygrp",
+    "platform",
+    "service"
+  ]
+}
