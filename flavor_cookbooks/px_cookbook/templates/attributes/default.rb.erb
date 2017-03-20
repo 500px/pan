@@ -1,1 +1,10 @@
-default['<%= @attribute_context %>']['file_cache_path'] = File.join(Chef::Config['file_cache_path'], '<%= @attribute_context %>')
+#
+# Cookbook Name:: <%= cookbook_name %>
+# Attributes:: default
+#
+# Copyright (C) <%= year %> <%= copyright_holder %>
+#
+
+# Create a 'workspace' for the cookbook to drop any files in to avoid download collisions.
+# If this cookbook does not download anything, this can be removed.
+# default['<%= cookbook_name %>']['file_cache_path'] = File.join(Chef::Config['file_cache_path'], '<%= cookbook_name %>')
