@@ -1,14 +1,13 @@
-name '<%= cookbook_name %>'
-maintainer '500px, Inc.'
+name             '<%= cookbook_name %>'
+maintainer       '500px, Inc.'
 maintainer_email '<%= email %>'
-license '<%= license %>'
-description 'Configures <%= cookbook_name %>'
+license          '<%= license %>'
+description      'Installs and configures <%= cookbook_name %>'
 long_description IO.read(File.join(File.dirname(__FILE__), 'README.md'))
-version '0.1.0'
+version          '0.1.0'
 
 supports 'ubuntu', '= 14.04'
 
-depends '500px-base'
 depends 'apt'
 depends 'chef-sugar'
 depends 'chef-vault'
