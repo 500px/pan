@@ -1,5 +1,6 @@
 context = ChefDK::Generator.context
-cookbook_dir = File.join(context.cookbook_root, context.cookbook_name)
+# Create the directory as 'chef-<cookbook_name>'
+cookbook_dir = File.join(context.cookbook_root, 'chef-' + context.cookbook_name)
 attribute_context = context.cookbook_name.gsub(/-/, '_')
 
 # Create cookbook directories
